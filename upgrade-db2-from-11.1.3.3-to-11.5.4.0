@@ -1,0 +1,118 @@
+10:41:07 root@n000a693 [/backup/db2/v11.1.4FP6/server_t]cd /opt/ibm/db2/
+
+10:41:13 root@n000a693 [/opt/ibm/db2]ls
+V11.1
+
+10:41:14 root@n000a693 [/opt/ibm/db2]su - db2inst1
+Last login: Thu Mar  3 10:34:07 GMT 2022 on pts/0
+
+10:41:38 db2inst1@n000a693 [~]cd /opt/ibm/db2/V11.1/instance/
+
+10:41:51 db2inst1@n000a693 [/opt/ibm/db2/V11.1/instance]db2ls
+
+Install Path                       Level   Fix Pack   Special Install Number   Install Date                  Installer UID
+---------------------------------------------------------------------------------------------------------------------
+/opt/ibm/db2/V11.1               11.1.4.6        6                            Thu Mar  3 10:30:16 2022 GMT             0
+
+10:41:54 db2inst1@n000a693 [/opt/ibm/db2/V11.1/instance]
+10:41:54 db2inst1@n000a693 [/opt/ibm/db2/V11.1/instance]ls
+common   dasupdt       db2dbmchk  db2icrt_local   db2iexec    db2ipcld   db2iupdt           db2iver    native
+dascrt   dasutil       db2iauto   db2idbm         db2iinfo    db2iset    db2iupdt_local     db2prechk  sdSharedFileList
+dasdrop  db2chkf       db2icknm   db2idefs        db2ilist    db2isetup  db2iupgrade        db2ssh
+daslist  db2ckupgrade  db2ickts   db2idrop        db2imchk    db2isrv    db2iupgrade_local  db2uit
+dasmigr  db2clpid      db2icrt    db2idrop_local  db2instcfg  db2iuadm   db2iutil           disp_msg
+You have new mail in /var/spool/mail/db2inst1
+
+11:16:39 db2inst1@n000a693 [/opt/ibm/db2/V11.1/instance]./db2ckupgrade gbsrdev -l /home/db2inst1/upgrade1.log -u db2inst1 -p db2inst1
+DBT5529N  The db2ckupgrade utility did not complete successfully. The database cannot be upgraded. The output log file is named "/home/db2inst1/upgrade1.log".
+
+11:17:37 db2inst1@n000a693 [/opt/ibm/db2/V11.1/instance]cat /home/db2inst1/upgrade1.log
+Version of DB2CKUPGRADE being run: VERSION "11.1"
+
+Database: "GBSRDEV"
+
+DBT5509N  The db2ckupgrade utility failed because it could not connect to the database. Database: "GBSRDEV".
+
+DBT5529N  The db2ckupgrade utility did not complete successfully. The database cannot be upgraded. The output log file is named "/home/db2inst1/upgrade1.log".
+
+
+11:18:01 db2inst1@n000a693 [/opt/ibm/db2/V11.1/instance]chage -l db2inst1
+Last password change                                    : Feb 06, 2018
+Password expires                                        : never
+Password inactive                                       : never
+Account expires                                         : never
+Minimum number of days between password change          : 0
+Maximum number of days between password change          : 99999
+Number of days of warning before password expires       : 7
+
+11:18:51 db2inst1@n000a693 [/opt/ibm/db2/V11.1/instance]
+11:19:17 db2inst1@n000a693 [/opt/ibm/db2/V11.1/instance]db2 connect to GBSRDEV
+
+   Database Connection Information
+
+ Database server        = DB2/LINUXX8664 11.1.4.6
+ SQL authorization ID   = DB2INST1
+ Local database alias   = GBSRDEV
+
+
+11:23:28 db2inst1@n000a693 [/opt/ibm/db2/V11.1/instance]./db2ckupgrade gbsrdev -l /home/db2inst1/upgrade1.log -u db2inst1 -p db2inst1
+DBT5529N  The db2ckupgrade utility did not complete successfully. The database cannot be upgraded. The output log file is named "/home/db2inst1/upgrade1.log".
+
+11:23:39 db2inst1@n000a693 [/opt/ibm/db2/V11.1/instance]cat /home/db2inst1/upgrade1.log
+Version of DB2CKUPGRADE being run: VERSION "11.1"
+
+Database: "GBSRDEV"
+
+DBT5509N  The db2ckupgrade utility failed because it could not connect to the database. Database: "GBSRDEV".
+
+DBT5529N  The db2ckupgrade utility did not complete successfully. The database cannot be upgraded. The output log file is named "/home/db2inst1/upgrade1.log".
+
+
+11:23:53 db2inst1@n000a693 [/opt/ibm/db2/V11.1/instance]
+11:29:45 in07217m@n000a693 [~]su - db2inst1
+Account locked due to 20 failed logins
+Password:
+su: Authentication failure
+
+11:30:00 in07217m@n000a693 [~]sudo -s
+[sudo] password for in07217m:
+
+11:30:20 root@n000a693 [/home/in07217m]pam_tally2 -r -u db2inst1
+Login           Failures Latest failure     From
+db2inst1           20    03/03/22 11:29:49  pts/0
+
+11:30:47 root@n000a693 [/home/in07217m]exit
+11:33:03 root@n000a693 [/home/in07217m]passwd db2inst1
+Changing password for user db2inst1.
+New password:
+Retype new password:
+passwd: all authentication tokens updated successfully.
+
+11:33:58 root@n000a693 [/home/in07217m]exit
+exit
+
+11:34:01 in07217m@n000a693 [~]su - db2inst1
+Password:
+Last login: Thu Mar  3 10:41:38 GMT 2022 on pts/0
+Last failed login: Thu Mar  3 11:31:23 GMT 2022 on pts/0
+There were 3 failed login attempts since the last successful login.
+
+11:34:06 db2inst1@n000a693 [~]exit
+
+
+11:34:18 root@n000a693 [/home/in07217m]su - db2inst1
+Last login: Thu Mar  3 11:34:05 GMT 2022 on pts/0
+
+11:34:25 db2inst1@n000a693 [~]cd /opt/ibm/db2/V11.1/instance/
+
+11:34:37 db2inst1@n000a693 [/opt/ibm/db2/V11.1/instance]ls
+common   dasupdt       db2dbmchk  db2icrt_local   db2iexec    db2ipcld   db2iupdt           db2iver    native
+dascrt   dasutil       db2iauto   db2idbm         db2iinfo    db2iset    db2iupdt_local     db2prechk  sdSharedFileList
+dasdrop  db2chkf       db2icknm   db2idefs        db2ilist    db2isetup  db2iupgrade        db2ssh
+daslist  db2ckupgrade  db2ickts   db2idrop        db2imchk    db2isrv    db2iupgrade_local  db2uit
+dasmigr  db2clpid      db2icrt    db2idrop_local  db2instcfg  db2iuadm   db2iutil           disp_msg
+
+11:34:38 db2inst1@n000a693 [/opt/ibm/db2/V11.1/instance]./db2ckupgrade gbsrdev -l /home/db2inst1/upgrade1.log -u db2inst1 -p TXvk9DKqjPv2zDp
+DBT5508I  The db2ckupgrade utility completed successfully. The database or databases can be upgraded.
+
+11:35:00 db2inst1@n000a693 [/opt/ibm/db2/V11.1/instance]

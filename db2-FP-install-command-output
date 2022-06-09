@@ -1,0 +1,364 @@
+09:39:39 root@n000a693 [/backup/db2]su - db2inst1
+Last login: Thu Mar  3 09:39:07 GMT 2022 on pts/0
+
+09:39:53 db2inst1@n000a693 [~]cd /opt/ibm/db2/V11.1/adm
+
+09:39:59 db2inst1@n000a693 [/opt/ibm/db2/V11.1/adm]db2licm -a /backup/db2/aese_u/db2/license/db2aese_u.lic
+
+LIC1402I  License added successfully.
+
+
+LIC1426I  This product is now licensed for use as outlined in your License Agreement.  USE OF THE PRODUCT CONSTITUTES ACCEPTANCE OF THE TERMS OF THE IBM LICENSE AGREEMENT, LOCATED IN THE FOLLOWING DIRECTORY: "/opt/ibm/db2/V11.1/license/en_US.iso88591"
+
+09:40:38 db2inst1@n000a693 [/opt/ibm/db2/V11.1/adm]db2licm -L
+Product name:                     "DB2 Advanced Enterprise Server Edition"
+License type:                     "Authorized User Single Install"
+Expiry date:                      "Permanent"
+Product identifier:               "db2aese"
+Version information:              "11.1"
+Enforcement policy:               "Soft Stop"
+Number of licensed authorized users: "25"
+Features:
+IBM DB2 Performance Management Offering:              "Not licensed"
+
+
+09:40:46 db2inst1@n000a693 [/opt/ibm/db2/V11.1/adm]db2level
+DB21085I  This instance or install (instance name, where applicable:
+"db2inst1") uses "64" bits and DB2 code release "SQL11013" with level
+identifier "0204010F".
+Informational tokens are "DB2 v11.1.3.3", "s1801310100", "DYN1801310100AMD64",
+and Fix Pack "3".
+Product is installed at "/opt/ibm/db2/V11.1".
+
+
+09:40:54 db2inst1@n000a693 [/opt/ibm/db2/V11.1/adm]
+
+
+10:23:16 db2inst1@n000a693 [~]db2stop
+03/03/2022 10:23:47     0   0   SQL1064N  DB2STOP processing was successful.
+SQL1064N  DB2STOP processing was successful.
+
+10:23:47 db2inst1@n000a693 [~]exit
+logout
+
+10:25:16 root@n000a693 [/backup/db2/v11.1.4FP6/server_t]ls
+db2                     db2checkCOL.tar.gz  db2_deinstall  db2ls           db2setup  installFixPack
+db2checkCOL_readme.txt  db2ckupgrade        db2_install    db2prereqcheck  ibm_im
+
+10:25:22 root@n000a693 [/backup/db2/v11.1.4FP6/server_t]./installFixPack -b /opt/ibm/db2/V11.1
+Do you want to choose a different installation directory for the fix pack? [yes/no]
+
+------------------------------------------------------------------------------------
+no
+
+DBI1017I  installFixPack is updating the database products installed in
+      location /opt/ibm/db2/V11.1.
+
+
+DB2 installation is being initialized.
+
+ Total number of tasks to be performed: 49
+Total estimated time for all tasks to be performed: 2310 second(s)
+
+Task #1 start
+Description: Stopping DB2 Fault Monitor
+Estimated time 10 second(s)
+Task #1 end
+
+Task #2 start
+Description: Preparing the system
+Estimated time 120 second(s)
+Task #2 end
+
+Task #3 start
+Description: Base Client Support for installation with root privileges
+Estimated time 3 second(s)
+Task #3 end
+
+Task #4 start
+Description: Product Messages - English
+Estimated time 14 second(s)
+Task #4 end
+
+Task #5 start
+Description: Base client support
+Estimated time 368 second(s)
+Task #5 end
+
+Task #6 start
+Description: Java Runtime Support
+Estimated time 217 second(s)
+Task #6 end
+
+Task #7 start
+Description: Java Help (HTML) - English
+Estimated time 7 second(s)
+Task #7 end
+
+Task #8 start
+Description: Base server support for installation with root privileges
+Estimated time 8 second(s)
+Task #8 end
+
+Task #9 start
+Description: Global Secure ToolKit
+Estimated time 76 second(s)
+Task #9 end
+
+Task #10 start
+Description: Java support
+Estimated time 13 second(s)
+Task #10 end
+
+Task #11 start
+Description: SQL procedures
+Estimated time 3 second(s)
+Task #11 end
+
+Task #12 start
+Description: ICU Utilities
+Estimated time 34 second(s)
+Task #12 end
+
+Task #13 start
+Description: Java Common files
+Estimated time 18 second(s)
+Task #13 end
+
+Task #14 start
+Description: Base server support
+Estimated time 626 second(s)
+Task #14 end
+
+Task #15 start
+Description: Control Center Help (HTML) - English
+Estimated time 13 second(s)
+Task #15 end
+
+Task #16 start
+Description: Relational wrappers common
+Estimated time 3 second(s)
+Task #16 end
+
+Task #17 start
+Description: DB2 data source support
+Estimated time 6 second(s)
+Task #17 end
+
+Task #18 start
+Description: ODBC data source support
+Estimated time 259 second(s)
+Task #18 end
+
+Task #19 start
+Description: Teradata data source support
+Estimated time 4 second(s)
+Task #19 end
+
+Task #20 start
+Description: Scientific Data Sources
+Estimated time 5 second(s)
+Task #20 end
+
+Task #21 start
+Description: JDBC data source support
+Estimated time 116 second(s)
+Task #21 end
+
+Task #22 start
+Description: IBM Software Development Kit (SDK) for Java(TM)
+Estimated time 49 second(s)
+Task #22 end
+
+Task #23 start
+Description: DB2 LDAP support
+Estimated time 4 second(s)
+Task #23 end
+
+Task #24 start
+Description: DB2 Instance Setup wizard
+Estimated time 25 second(s)
+Task #24 end
+
+Task #25 start
+Description: Structured file data sources
+Estimated time 5 second(s)
+Task #25 end
+
+Task #26 start
+Description: Integrated Flash Copy Support
+Estimated time 3 second(s)
+Task #26 end
+
+Task #27 start
+Description: Oracle data source support
+Estimated time 4 second(s)
+Task #27 end
+
+Task #28 start
+Description: Connect support
+Estimated time 3 second(s)
+Task #28 end
+
+Task #29 start
+Description: Application data sources
+Estimated time 4 second(s)
+Task #29 end
+
+Task #30 start
+Description: SQL Server data source support
+Estimated time 4 second(s)
+Task #30 end
+
+Task #31 start
+Description: Communication support - TCP/IP
+Estimated time 3 second(s)
+Task #31 end
+
+Task #32 start
+Description: Base application development tools
+Estimated time 38 second(s)
+Task #32 end
+
+Task #33 start
+Description: Parallel Extension
+Estimated time 3 second(s)
+Task #33 end
+
+Task #34 start
+Description: EnterpriseDB code
+Estimated time 4 second(s)
+Task #34 end
+
+Task #35 start
+Description: Replication tools
+Estimated time 60 second(s)
+Task #35 end
+
+Task #36 start
+Description: Sample database source
+Estimated time 4 second(s)
+Task #36 end
+
+Task #37 start
+Description: itlm
+Estimated time 3 second(s)
+Task #37 end
+
+Task #38 start
+Description: Command Line Processor Plus
+Estimated time 6 second(s)
+Task #38 end
+
+Task #39 start
+Description: Sybase data source support
+Estimated time 3 second(s)
+Task #39 end
+
+Task #40 start
+Description: Federated Data Access Support
+Estimated time 3 second(s)
+Task #40 end
+
+Task #41 start
+Description: First Steps
+Estimated time 3 second(s)
+Task #41 end
+
+Task #42 start
+Description: Product Signature for DB2 Server Edition
+Estimated time 6 second(s)
+Task #42 end
+
+Task #43 start
+Description: Guardium Installation Manager Client
+Estimated time 36 second(s)
+Task #43 end
+
+Task #44 start
+Description: Setting DB2 library path
+Estimated time 180 second(s)
+Task #44 end
+
+Task #45 start
+Description: Executing control tasks
+Estimated time 20 second(s)
+Task #45 end
+
+Task #46 start
+Description: Updating global registry
+Estimated time 20 second(s)
+Task #46 end
+
+Task #47 start
+Description: Starting DB2 Fault Monitor
+Estimated time 10 second(s)
+Task #47 end
+
+Task #48 start
+Description: Updating the db2ls and db2greg link
+Estimated time 1 second(s)
+Task #48 end
+
+Task #49 start
+Description: Updating existing DB2 instances
+Estimated time 60 second(s)
+Task #49 end
+
+The execution completed successfully.
+
+For more information see the DB2 installation log at
+"/tmp/installFixPack.log.13185".
+
+10:30:50 root@n000a693 [/backup/db2/v11.1.4FP6/server_t]
+
+10:30:50 root@n000a693 [/backup/db2/v11.1.4FP6/server_t]su - db2inst1
+Last login: Thu Mar  3 10:30:48 GMT 2022 on pts/0
+
+10:34:08 db2inst1@n000a693 [~]db2stop
+03/03/2022 10:34:30     0   0   SQL1064N  DB2STOP processing was successful.
+SQL1064N  DB2STOP processing was successful.
+
+10:34:30 db2inst1@n000a693 [~]db2level
+DB21085I  This instance or install (instance name, where applicable:
+"db2inst1") uses "64" bits and DB2 code release "SQL11014" with level
+identifier "0205010F".
+Informational tokens are "DB2 v11.1.4.6", "s2102191900", "DYN2102191900AMD64",
+and Fix Pack "6".
+Product is installed at "/opt/ibm/db2/V11.1".
+
+
+10:34:44 db2inst1@n000a693 [~]cd /opt/ibm/db2/V11.1/adm
+
+10:34:57 db2inst1@n000a693 [/opt/ibm/db2/V11.1/adm]db2licm -L
+Product name:                     "DB2 Advanced Enterprise Server Edition"
+License type:                     "Authorized User Single Install"
+Expiry date:                      "Permanent"
+Product identifier:               "db2aese"
+Version information:              "11.1"
+Enforcement policy:               "Soft Stop"
+Number of licensed authorized users: "25"
+Features:
+IBM DB2 Performance Management Offering:              "Not licensed"
+
+
+10:35:04 db2inst1@n000a693 [/opt/ibm/db2/V11.1/adm]db2 connect to GBSRDEV
+SQL1032N  No start database manager command was issued.  SQLSTATE=57019
+
+10:35:17 db2inst1@n000a693 [/opt/ibm/db2/V11.1/adm]db2start
+03/03/2022 10:35:45     0   0   SQL1063N  DB2START processing was successful.
+SQL1063N  DB2START processing was successful.
+
+10:35:45 db2inst1@n000a693 [/opt/ibm/db2/V11.1/adm]db2 connect to GBSRDEV
+
+   Database Connection Information
+
+ Database server        = DB2/LINUXX8664 11.1.4.6
+ SQL authorization ID   = DB2INST1
+ Local database alias   = GBSRDEV
+
+
+10:36:27 db2inst1@n000a693 [/opt/ibm/db2/V11.1/adm]exit
+logout
+
+10:36:31 root@n000a693 [/backup/db2/v11.1.4FP6/server_t]

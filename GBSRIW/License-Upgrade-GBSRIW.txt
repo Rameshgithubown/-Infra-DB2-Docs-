@@ -1,0 +1,118 @@
+FIFTH:
+
+
+01:00:10 db2inst1@n000a706 [~]db2start
+03/11/2022 01:00:37     0   0   SQL1063N  DB2START processing was successful.
+SQL1063N  DB2START processing was successful.
+
+01:00:37 db2inst1@n000a706 [~]db2level
+DB21085I  This instance or install (instance name, where applicable:
+"db2inst1") uses "64" bits and DB2 code release "SQL11054" with level
+identifier "0605010F".
+Informational tokens are "DB2 v11.5.4.0", "s2006161200", "DYN2006161200AMD64",
+and Fix Pack "0".
+Product is installed at "/opt/ibm/db2/V11.5".
+
+
+01:00:43 db2inst1@n000a706 [~]db2licm -L
+Product name:                     "DB2 Community Edition"
+License type:                     "Community"
+Expiry date:                      "Permanent"
+Product identifier:               "db2dec"
+Version information:              "11.5"
+Max amount of memory (GB):        "16"
+Max number of cores:              "4"
+
+
+
+
+01:00:50 db2inst1@n000a706 [~]exit
+logout
+
+01:01:42 root@n000a706 [/opt/ibm/db2/V11.5/instance]cd /backup/db2/
+
+01:02:01 root@n000a706 [/backup/db2]ls
+aese_u  DB2_AESE_AUSI_Activation_11.1.zip  server                             v11.1.4FP6
+db      db2_li11.5.4                       v11.1.3fp3_linuxx64_server.tar.gz  v11.5.4.0
+
+01:02:02 root@n000a706 [/backup/db2]cd db2_li11.5.4/
+
+01:02:08 root@n000a706 [/backup/db2/db2_li11.5.4]ls
+aese_c  DB2_AESEPVU_OA_11.5.4_MPML.zip
+
+01:02:08 root@n000a706 [/backup/db2/db2_li11.5.4]cd aese_c/
+
+01:02:14 root@n000a706 [/backup/db2/db2_li11.5.4/aese_c]ls
+db2  readme  warehouse
+
+01:02:15 root@n000a706 [/backup/db2/db2_li11.5.4/aese_c]cd db2/
+
+01:02:19 root@n000a706 [/backup/db2/db2_li11.5.4/aese_c/db2]ls
+license
+
+01:02:21 root@n000a706 [/backup/db2/db2_li11.5.4/aese_c/db2]cd license/
+
+01:02:23 root@n000a706 [/backup/db2/db2_li11.5.4/aese_c/db2/license]ls
+db2aese_c.lic  sam41.lic  UNIX  Windows
+
+01:02:23 root@n000a706 [/backup/db2/db2_li11.5.4/aese_c/db2/license]pwd
+/backup/db2/db2_li11.5.4/aese_c/db2/license
+
+01:02:42 root@n000a706 [/backup/db2/db2_li11.5.4/aese_c/db2/license]cd /opt/ibm/db2/V11.5/adm/
+
+01:03:12 root@n000a706 [/opt/ibm/db2/V11.5/adm]ls
+cielock    db2credman  db2fmpr     db2govd    db2inidb      db2pd     db2remot  db2rstar  db2stop   db2trc
+db2audit   db2dart     db2fmpr32   db2govlg   db2licd       db2pdcfg  db2rfpen  db2rstop  db2stop2  runpy.sh
+db2cacpy   db2dasstml  db2fmpterm  db2havend  db2licm       db2rapp   db2rocm   db2set    db2stst   runr.sh
+db2cap     db2fmp      db2genp     db2iclean  db2linkspeed  db2rappl  db2rocmc  db2star2  db2sysc
+db2chparm  db2fmp32    db2gov      db2ida     db2path       db2rem    db2rocme  db2start  db2syscr
+
+01:03:13 root@n000a706 [/opt/ibm/db2/V11.5/adm]./db2licm -a /backup/db2/db2_li11.5.4/aese_c/db2/license/db2aese_c.lic
+
+LIC1402I  License added successfully.
+
+
+LIC1426I  This product is now licensed for use as outlined in your License Agreement.  USE OF THE PRODUCT CONSTITUTES ACCEPTANCE OF THE TERMS OF THE IBM LICENSE AGREEMENT, LOCATED IN THE FOLLOWING DIRECTORY: "/opt/ibm/db2/V11.5/license/en_US.iso88591"
+
+01:03:50 root@n000a706 [/opt/ibm/db2/V11.5/adm]su - db2inst1
+Last login: Fri Mar 11 00:56:34 GMT 2022 on pts/0
+
+01:04:07 db2inst1@n000a706 [~]db2level
+DB21085I  This instance or install (instance name, where applicable:
+"db2inst1") uses "64" bits and DB2 code release "SQL11054" with level
+identifier "0605010F".
+Informational tokens are "DB2 v11.5.4.0", "s2006161200", "DYN2006161200AMD64",
+and Fix Pack "0".
+Product is installed at "/opt/ibm/db2/V11.5".
+
+
+01:04:10 db2inst1@n000a706 [~]db2licm -L
+Product name:                     "DB2 Advanced Enterprise Server Edition"
+License type:                     "CPU Option"
+Expiry date:                      "Permanent"
+Product identifier:               "db2aese"
+Version information:              "11.5"
+Enforcement policy:               "Soft Stop"
+Features:
+IBM DB2 Performance Management Offering:              "Not licensed"
+
+Product name:                     "DB2 Community Edition"
+License type:                     "Community"
+Expiry date:                      "Permanent"
+Product identifier:               "db2dec"
+Version information:              "11.5"
+Max amount of memory (GB):        "16"
+Max number of cores:              "4"
+
+
+
+
+01:04:17 db2inst1@n000a706 [~]db2stop
+11/03/2022 01:04:37     0   0   SQL1064N  DB2STOP processing was successful.
+SQL1064N  DB2STOP processing was successful.
+
+01:04:37 db2inst1@n000a706 [~]db2start
+03/11/2022 01:04:45     0   0   SQL1063N  DB2START processing was successful.
+SQL1063N  DB2START processing was successful.
+
+01:04:45 db2inst1@n000a706 [~]

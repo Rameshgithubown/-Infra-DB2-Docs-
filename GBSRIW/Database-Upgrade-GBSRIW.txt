@@ -1,0 +1,26 @@
+FOURTH:
+
+
+01:05:39 db2inst1@n000a706 [~]db2 connect to GBSRIW
+SQL5035N  The connection failed because the database product has been updated
+and the database needs to be upgraded  SQLSTATE=55001
+
+01:06:03 db2inst1@n000a706 [~]db2 "UPGRADE DATABASE GBSRIW"
+DB20000I  The UPGRADE DATABASE command completed successfully.
+
+01:08:17 db2inst1@n000a706 [~]db2 connect to GBSRIW
+
+   Database Connection Information
+
+ Database server        = DB2/LINUXX8664 11.5.4.0
+ SQL authorization ID   = DB2INST1
+ Local database alias   = GBSRIW
+
+
+01:08:29 db2inst1@n000a706 [~]db2 terminate
+DB20000I  The TERMINATE command completed successfully.
+
+01:09:01 db2inst1@n000a706 [~]exit
+logout
+
+01:09:03 root@n000a706 [/opt/ibm/db2/V11.5/adm]
